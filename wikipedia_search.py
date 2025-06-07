@@ -14,7 +14,7 @@ def extract_info_from_wikipedia(institution_name: str) -> InstitutionDetails:
     full_page = wikipedia.page(institution_name)
     content = full_page.content
 
-    founder_match = re.search(r'[Ff]ounder[s]?:?\s*(.*)' , content)
+    founder_match = re.search(r'[Ff]ounde[drs]?:?\s*(?:by)?\s*\s*(.*)' , content)
     founded_match = re.search(r'Founded in (\d{4})', content)
     branches_match = re.search(r'[Bb]ranches\s*(.*)', content)
     employees_match = re.search(r'(?:[Ee]mployee[s]?|[Ss]taff).*?([\d,]+)', content)
